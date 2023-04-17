@@ -7,6 +7,7 @@
 }
 
 body {
+ 
     min-height: 100vh;
     scroll-behavior: smooth;
     text-rendering: optimizeLegibility;
@@ -15,10 +16,14 @@ body {
 
 .header {
     text-align: center;
+
 }
 
 .header p {
-    margin-left: 150px;
+    font-style: italic;
+    text-align: justify;
+    text-align-last: center;
+
 }
 
 .col {
