@@ -32,7 +32,7 @@
 
     <section class="info-user">
         <h3>THÔNG TIN NGƯỜI BỆNH</h3>
-        <form id="form-1">
+        <form id="form-1" onsubmit="event.preventDefault()">
             <div class="form-row">
                 <div class="col">
                     <label class="font-weight-semibold" for="">1. Giới tính:</label>
@@ -65,7 +65,7 @@
                     <label class="form-check-label" for="radio2">Không</label>
                 </div>
             </div>
-            <input id="btnSubmit" type="submit" value="Submit">
+            <button class="btn btn-primary" id="btnSubmit" onclick="getDataFromForm()">Submit</button>
         </form>
 
     </section>
@@ -135,11 +135,7 @@
     <script src="app.js">
 
     </script>
-    <script>
-        getDataFromForm({
 
-        })
-    </script>
 
 
 
