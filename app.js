@@ -81,3 +81,27 @@ for (let z = 0; z < listCauHoi.length; z++) {
         parent.append(document.createElement("br"));
     }
 }
+
+function getDataFromForm() {
+    const gender = $('select.custom-select').val();
+    const age = $('input#age').val();
+    const phoneNumber = $('input#numberphone').val();
+    const distance = $('input#distance').val();
+    const hasBHYT = $('input[name="optradio"]:checked').val() === "option1";
+
+    const data = {
+        gender: gender,
+        age: age,
+        phoneNumber: phoneNumber,
+        distance: distance,
+        hasBHYT: hasBHYT
+    };
+    console.log(data);
+
+}
+
+
+
+
+
+

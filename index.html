@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
     <link rel="stylesheet" href="style.css">
     <title>Test</title>
 </head>
@@ -29,13 +32,13 @@
 
     <section class="info-user">
         <h3>THÔNG TIN NGƯỜI BỆNH</h3>
-        <form>
+        <form id="form-1">
             <div class="form-row">
                 <div class="col">
                     <label class="font-weight-semibold" for="">1. Giới tính:</label>
-                    <select class="custom-select" id="">
-                        <option value="cloths" selected="">Nam</option>
-                        <option value="homeDecoration">Nữ</option>
+                    <select class="custom-select" id="gender">
+                        <option value="nam" selected="">Nam</option>
+                        <option value="nu">Nữ</option>
                     </select>
                 </div>
                 <div class="col">
@@ -62,7 +65,9 @@
                     <label class="form-check-label" for="radio2">Không</label>
                 </div>
             </div>
+            <input id="btnSubmit" type="submit" value="Submit">
         </form>
+
     </section>
 
     <section class="container">
@@ -121,7 +126,7 @@
                 </div>
             </div>
         </div>
-        <input type="submit" class="btn btn-success" value="Gửi đánh giá">
+
     </section>
     <footer>
         <h3>XIN TRÂN TRỌNG CẢM ƠN!</h3>
@@ -129,6 +134,11 @@
 
     <script src="app.js">
 
+    </script>
+    <script>
+        getDataFromForm({
+
+        })
     </script>
 
 
