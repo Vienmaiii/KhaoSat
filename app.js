@@ -68,13 +68,15 @@ for (let z = 0; z < listCauHoi.length; z++) {
         child.style = "font-weight:bold";
         child.innerText = headingItem.dsCauhoi[i];
 
+
         for (let j = 0; j < listNhanxet.length; j++) {
             let radio = document.createElement("div");
             radio.style = "font-weight:normal"
-            radio.innerHTML = `<input type="radio" id="cauhoi_` + z + i + j + `" name="` + z + i + `" >
+            radio.innerHTML = `<input type="radio" id="cauhoi_` + z + i + j + `" name="` + z + i + `" value="` + listNhanxet[j] + `">
  <label for="cauhoi_`+ z + i + j + `">` + listNhanxet[j] + `</label><br>`;
 
             child.append(radio);
+
         }
 
         parent.append(child);
@@ -97,11 +99,20 @@ function getDataFromForm() {
         hasBHYT: hasBHYT
     };
     console.log(data);
-
 }
+function getDataCauTraLoi() {
+    for (let z = 0; z < listCauHoi.length; z++) {
+        let headingItem = listCauHoi[z];
 
+        for (let i = 0; i < headingItem.dsCauhoi.length; i++) {
 
+            const CauTL = $('input[name="' + z + i + '"]:checked').val();
+            const data = {
+                CauHoi: headingItem.dsCauhoi[i],
+                CauTL: CauTL,
+            }
 
-
-
-
+            console.log(data);
+        }
+    }
+}
