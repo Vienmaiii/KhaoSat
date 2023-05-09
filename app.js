@@ -98,11 +98,16 @@ function getDataFromForm() {
         distance: distance,
         hasBHYT: hasBHYT
     };
-    console.log(data);
+    return data;
 }
 function getDataCauTraLoi() {
+    var obKQ ={};
+   
+    let lstHeading = [];
     for (let z = 0; z < listCauHoi.length; z++) {
         let headingItem = listCauHoi[z];
+
+        let lstDsCauhoi =[];
 
         for (let i = 0; i < headingItem.dsCauhoi.length; i++) {
 
@@ -111,8 +116,18 @@ function getDataCauTraLoi() {
                 CauHoi: headingItem.dsCauhoi[i],
                 CauTL: CauTL,
             }
-
-            console.log(data);
+            lstDsCauhoi.push(data);
         }
+        lstHeading.push(
+            {
+                tieude:headingItem.tieude,
+                dsCauhoi:lstDsCauhoi 
+            }
+        );
     }
+    obKQ = {
+        thongtinBN : getDataFromForm(),
+        khaosat: lstHeading
+    }
+    console.log(obKQ);
 }
