@@ -61,12 +61,17 @@ for (let z = 0; z < listCauHoi.length; z++) {
     Heading.style = "color:red";
     parent.append(Heading);
 
+
     for (let i = 0; i < headingItem.dsCauhoi.length; i++) {
         let child = document.createElement("div");
         child.className = "child";
         child.id = 'cauhoi_' + i;
         child.style = "font-weight:bold";
         child.innerText = headingItem.dsCauhoi[i];
+        let Error = document.createElement("div");
+        Error.id = 'Error_' + z + i;
+        Error.style = "font-style: italic; color:red";
+
 
 
         for (let j = 0; j < listNhanxet.length; j++) {
@@ -79,10 +84,19 @@ for (let z = 0; z < listCauHoi.length; z++) {
 
         }
 
+
+
         parent.append(child);
+        child.append(Error);
+
         parent.append(document.createElement("br"));
     }
 }
+
+
+
+
+
 
 function getDataFromForm() {
     const gender = $('select.custom-select').val();
@@ -100,14 +114,30 @@ function getDataFromForm() {
     };
     return data;
 }
+
+function getDataDanhGia() {
+    const DanhGia = $('input#rate').val();
+    const GioiThieu = $('input[name="comeback"]:checked').val();
+    const note = $('input#note').val();
+    const data = {
+        DanhGia: DanhGia + "%",
+        GioiThieu: GioiThieu,
+        Note: note,
+    }
+
+    return data;
+}
+
+
+
 function getDataCauTraLoi() {
-    var obKQ ={};
-   
+    var obKQ = {};
+
     let lstHeading = [];
     for (let z = 0; z < listCauHoi.length; z++) {
         let headingItem = listCauHoi[z];
 
-        let lstDsCauhoi =[];
+        let lstDsCauhoi = [];
 
         for (let i = 0; i < headingItem.dsCauhoi.length; i++) {
 
@@ -115,19 +145,43 @@ function getDataCauTraLoi() {
             const data = {
                 CauHoi: headingItem.dsCauhoi[i],
                 CauTL: CauTL,
+
             }
+
+
             lstDsCauhoi.push(data);
+
         }
         lstHeading.push(
             {
-                tieude:headingItem.tieude,
-                dsCauhoi:lstDsCauhoi 
+                tieude: headingItem.tieude,
+                dsCauhoi: lstDsCauhoi
             }
         );
     }
     obKQ = {
-        thongtinBN : getDataFromForm(),
-        khaosat: lstHeading
+        thongtinBN: getDataFromForm(),
+        khaosat: lstHeading,
+        danhgia: getDataDanhGia(),
+
     }
+
     console.log(obKQ);
+
+
+}
+function getValidate() {
+    for (let z = 0; z < listCauHoi.length; z++) {
+        let headingItem = listCauHoi[z];
+
+        for (let i = 0; i < headingItem.dsCauhoi.length; i++) {
+            const CauTL = $('input[name="' + z + i + '"]:checked').val();
+
+            if (CauTL === undefined) {
+
+                document.getElementById("Error_" + z + i + "").innerText = "Vui lòng chọn câu trả lời";
+
+            }
+        }
+    }
 }

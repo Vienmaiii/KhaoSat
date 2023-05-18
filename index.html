@@ -32,7 +32,7 @@
 
     <section class="info-user">
         <h3>THÔNG TIN NGƯỜI BỆNH</h3>
-        <form id="form-1" onsubmit="event.preventDefault()">
+        <form id="form-1" onsubmit="event.preventDefault()" name=" benhnhan">
             <div class="form-row">
                 <div class="col">
                     <label class="font-weight-semibold" for="">1. Giới tính:</label>
@@ -65,7 +65,6 @@
                     <label class="form-check-label" for="radio2">Không</label>
                 </div>
             </div>
-            <button class="btn btn-primary" id="btnSubmit" onclick="getDataFromForm()">Submit</button>
         </form>
 
     </section>
@@ -78,10 +77,10 @@
 
         </div>
         <div class="container-row">
-            <div class="row-item" id="parent">
+            <form class="row-item" id="parent" name="form-reply" onsubmit="event.preventDefault()">
 
 
-            </div>
+            </form>
             <h3>F.</h3>
             <div class="row-item">
                 <div class="row-item-1">
@@ -103,31 +102,38 @@
                     <b>Nếu có nhu cầu khám bệnh, Ông/Bà có quay trở lại hoặc giới thiệu cho người khác đến không?</b>
                     <div class="row-item-1">
                         <div class="form-check">
-                            <input type="radio" class="form-check-input" id="g01" name="g" value="g01">
+                            <input type="radio" class="form-check-input" id="g01" name="comeback"
+                                value="Chắc chắn không bao giờ quay lại">
                             <label class="form-check-label" for="g01">Chắc chắn không bao giờ quay lại</label>
                         </div>
                         <div class="form-check">
-                            <input type="radio" class="form-check-input" id="g02" name="g" value="g02">
+                            <input type="radio" class="form-check-input" id="g02" name="comeback" value="Không muốn quay lại nhưng có ít lựa chọn
+                            khác">
                             <label class="form-check-label" for="g02">Không muốn quay lại nhưng có ít lựa chọn
                                 khác</label>
                         </div>
                         <div class="form-check">
-                            <input type="radio" class="form-check-input" id="g03" name="g" value="g03">
+                            <input type="radio" class="form-check-input" id="g03" name="comeback"
+                                value="Có thể sẽ quay lại">
                             <label class="form-check-label" for="g03">Có thể sẽ quay lại</label>
                         </div>
                         <div class="form-check">
-                            <input type="radio" class="form-check-input" id="g04" name="g" value="g04">
+                            <input type="radio" class="form-check-input" id="g04" name="comeback" value="Chắc chắn sẽ quay lại hoặc giới thiệu cho người
+                            khác">
                             <label class="form-check-label" for="g04">Chắc chắn sẽ quay lại hoặc giới thiệu cho người
                                 khác</label>
                         </div>
                         <div class="col">
+                            <input type="radio" class="form-check-input" id="g04" name="comeback"
+                                value=" Khác (ghi rõ):">
                             <label for="note" class="mr-sm-2"> Khác (ghi rõ):</label>
                             <input type="text" class="form-control" id="note" placeholder="" name="note">
                         </div>
                     </div>
                 </div>
             </div>
-            <button class="btn btn-primary" id="btnSubmit" onclick="getDataCauTraLoi()">Submit</button>
+            <button class="btn btn-primary" id="btn-Submit" type="submit"
+                onclick="getDataCauTraLoi(), getValidate()">Submit</button>
         </div>
 
     </section>
